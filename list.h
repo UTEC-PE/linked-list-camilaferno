@@ -17,11 +17,24 @@ class List {
         void print_reverse(Node<T>* head);
 
     public:
-        List();
+        List() : head(NULL), tail(NULL) {}; //constructor
 
-        int front();
-        int back();
-        void push_front(T value);
+        T front();
+        T back();
+
+        //push front
+        void push_front(T value){
+          Node<T>* Tmp = new Node<T>; //Create node Tmp
+          Tmp -> data=value;
+          Tmp -> next=NULL;
+          if (head==NULL){
+            head=Tmp;
+          }
+          else{
+            Tmp -> next=head;
+            head=Tmp;
+          }
+        }
         void push_back(T value);
         void pop_front();
         void pop_back();
@@ -29,12 +42,31 @@ class List {
         void concat(List<T> &other);
         bool empty();
         int size();
-        void print();
+
+        //print
+        void print(){
+          if (head == NULL) {
+            cout << "Lista vacia" << endl;
+          }
+          else {
+            Node<T>* Tmp=head;
+            while(Tmp){
+              cout << Tmp -> data << " ";
+              Tmp=Tmp -> next;
+            }
+
+          }
+        }
         void print_reverse();
         void clear();
         Iterator<T> begin();
         Iterator<T> end();
 
-        ~List();
+        ~List(){
+            if(head){
+                head->killSelf();
+            }
+            head = NULL;
+        }
 };
 #endif

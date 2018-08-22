@@ -4,9 +4,13 @@
 template <typename T>
 struct Node {
     T data;
-    struct Node* next;
+    struct Node<T>* next;
 
-    void killSelf();
+    void killSelf(){
+      if (next){
+        delete next;
+      }
+    }
 };
 
 #endif
