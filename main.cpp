@@ -12,6 +12,9 @@ int main() {
   numbers.push_front(3);
   numbers.push_front(2);
   numbers.push_front(1);
+  numbers.print();
+  cout << endl;
+
 
   List<int> number;
   number.push_front(7);
@@ -19,7 +22,9 @@ int main() {
   number.push_front(9);
   number.print();
   cout << endl;
-  //numbers.print_reverse();
+
+
   numbers.concat(number);
+  numbers.print();
   return 0;
 }

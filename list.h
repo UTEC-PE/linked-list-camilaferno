@@ -98,10 +98,10 @@ class List {
           print();
         };
 
-        //Position ESTA MAL
+        //Position
         T get(int position){
           if(head==NULL){
-            return false;
+            throw "Index out of range >:|";
           }
           else{
             if(position==0){
@@ -119,9 +119,10 @@ class List {
               }
             }
           }
+          throw "Index out of range >:|";
         };
 
-        //Quejesto
+        //Juntar listas
         void concat(List<T> &other){
           Node<T>* Tmp = head;
           while (Tmp -> next){
