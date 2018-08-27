@@ -6,8 +6,20 @@ using namespace std;
 
 int main() {
   List<int> numbers;
+  numbers.push_front(6);
   numbers.push_front(5);
+  numbers.push_front(4);
   numbers.push_front(3);
-  numbers.print();
+  numbers.push_front(2);
+  numbers.push_front(1);
+
+  List<int> number;
+  number.push_front(7);
+  number.push_front(8);
+  number.push_front(9);
+  number.print();
+  cout << endl;
+  //numbers.print_reverse();
+  numbers.concat(number);
   return 0;
 }
