@@ -8,7 +8,8 @@ struct Node {
 
     void killSelf(){
       if (next){
-        delete next;
+        next->killSelf();
+        delete this;
       }
     }
 };

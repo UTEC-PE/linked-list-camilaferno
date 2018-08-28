@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/iterator.h
+node.h
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/node.h
+
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/list.h
+iostream
+-
+node.h
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/node.h
+iterator.h
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/iterator.h
+
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/main.cpp
+iostream
+-
+list.h
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/list.h
+node.h
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/node.h
+
+/Users/camilafernandez/Desktop/ADE/linked-list-camilaferno/node.h
+

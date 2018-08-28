@@ -15,16 +15,28 @@ int main() {
   numbers.print();
   cout << endl;
 
+  List<int> list2;
+  list2.push_front(7);
+  list2.push_front(8);
+  list2.push_front(9);
 
-  List<int> number;
-  number.push_front(7);
-  number.push_front(8);
-  number.push_front(9);
-  number.print();
-  cout << endl;
-
-
-  numbers.concat(number);
+  cout << "Numbers: ";
   numbers.print();
+  cout << "\n";
+  cout << "List2: ";
+  list2.print();
+  cout << "\n";
+
+  numbers.pop_back();
+
+  cout << endl;
+  cout << "Concat: ";
+  numbers.concat(list2);
+  numbers.print();
+  cout << endl;
+  numbers.clear();
+  numbers.print();
+
+
   return 0;
 }

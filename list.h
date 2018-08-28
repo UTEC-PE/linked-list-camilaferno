@@ -78,11 +78,10 @@ class List {
         //pop_front (borrar el primer elemento)
         void pop_front(){
           Node<T>* Tmp = new Node<T>;
-          delete head;
           Tmp = head -> next; //tmp apunta al siguiente de Head
-          head -> next=NULL; //aislamos el head
+          head -> next = NULL; //el next de head apunta a null
+          delete head;
           head = Tmp; //head se vuelve el siguiente
-          nodes--;
           print();
         };
 
@@ -94,7 +93,6 @@ class List {
           }
           delete tail; //borras el ultimo
           Tmp -> next = NULL; //haces que el next apunte a null para que se vuelva el ultumo
-          nodes--;
           print();
         };
 
@@ -129,17 +127,12 @@ class List {
             Tmp=Tmp -> next;
           }
           Tmp -> next=other.head;
-          nodes += other.size();
+          other.head = NULL;
         };
 
         //empty
         bool empty(){
-          if(head==NULL){
-            return true;
-          }
-          else{
-            return false;
-          }
+          return !head;
         };
 
         //size
@@ -202,6 +195,7 @@ class List {
               delete Iter;
             }
           }
+          head = NULL;
         };
 
         Iterator<T> begin();
