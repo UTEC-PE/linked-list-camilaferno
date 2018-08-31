@@ -9,7 +9,7 @@ struct Node {
     void killSelf(){
       if (next){
         next->killSelf();
-        delete this;
+        delete this; // El delete debe estar afuera 
       }
     }
 };

@@ -22,7 +22,7 @@ class List {
         //Ver primer elemento
         T front(){
           if(head==NULL){
-            return false;
+            return false; // Debes manejar la excepción, y no puedes retornar false ya que puede ser un típo diferente 
           }
           else{
             return head->data;
@@ -32,7 +32,7 @@ class List {
         //Ver ultimo elemento
         T back(){
           if(head==NULL){
-            return false;
+            return false; // Igual que el caso anterior
           }
           else{
             Node<T>* Iter = head; //crear puntero que se va mover por los nodos
@@ -76,8 +76,8 @@ class List {
         };
 
         //pop_front (borrar el primer elemento)
-        void pop_front(){
-          Node<T>* Tmp = new Node<T>;
+        void pop_front(){ // No estás controlando el caso de una lista vacía
+          Node<T>* Tmp = new Node<T>;  // No es necesario darle new al nodo, desperdicias memoria
           Tmp = head -> next; //tmp apunta al siguiente de Head
           head -> next = NULL; //el next de head apunta a null
           delete head;
@@ -91,7 +91,7 @@ class List {
           while(Tmp->next->next){ //Hasta el penultimo
             Tmp=Tmp->next; //Tmp es el penultimo nodo
           }
-          delete tail; //borras el ultimo
+          delete tail; //borras el ultimo     // No estás usando tail, esto no debería funcionar
           Tmp -> next = NULL; //haces que el next apunte a null para que se vuelva el ultumo
           print();
         };
@@ -121,13 +121,13 @@ class List {
         };
 
         //Juntar listas
-        void concat(List<T> &other){
+        void concat(List<T> &other){ // Se puede mejorar haciendo uso del puntero al final
           Node<T>* Tmp = head;
           while (Tmp -> next){
             Tmp=Tmp -> next;
           }
           Tmp -> next=other.head;
-          other.head = NULL;
+          other.head = NULL; 
         };
 
         //empty
@@ -136,17 +136,18 @@ class List {
         };
 
         //size
-        int size(){
+        int size(){ // Se puede mejorar usando un contador al agregar y remover
           int c = 0;
           if(head==NULL){ //si lista vacia
             return 0;
           }
           else{
             Node<T>* Iter = head; //crear puntero que se va mover por los nodos
-            while(Iter -> next){ //mientras exista un next
+            while(Iter -> next){ //mientras exista un next // Debería ser, mientras exista Iter
               Iter = Iter-> next; //se va moviendo por los nodos, iter termina en el ultimo
               c += 1;
             }
+            // Falta contar el elemento del final
             return c;
           }
         };
@@ -171,7 +172,7 @@ class List {
             cout << "lista vacia" << endl;
           }
           else{
-            List<T>* listTmp = new List<T>; //Creando lista temporal vacia
+            List<T>* listTmp = new List<T>; //Creando lista temporal vacia // Podrías usar un array para optimizar
 
             Node<T>* Tmp = head; //crear puntero que se va mover por los nodos
             while(Tmp){ //mientras exista un next
